@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-
-import { MaterialStationSearchDropDown } from './MaterialStationSearchDropDown';
-import { StationDropDown } from './StationDropDown'
-import { Train } from './Train';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+import HomePage from './pages/HomePage';
+import DashboardPage from './pages/DashboardPage';
 
 class App extends Component {
   render() {
     return (
-      <div className="App mdl-layout">
-        <MaterialStationSearchDropDown className="poopy" />
-
-      
-      </div>
+      <Router>
+        <div>
+          <Route exact path="/" component={HomePage}/>
+          <Route path="/dashboard" component={DashboardPage}/>
+        </div>
+      </Router>
     );
   }
 }

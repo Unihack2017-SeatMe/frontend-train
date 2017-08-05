@@ -1,3 +1,7 @@
+.landing {
+  filter: brightness(70%);
+}
+
 .mdl-layout {
   align-items: center;
   justify-content: center;
@@ -13,9 +17,7 @@
   height: 100px;
 }
 
-.landing {
-  filter: brightness(70%);
-}
+
 
 .demo-layout-transparent {
   background:

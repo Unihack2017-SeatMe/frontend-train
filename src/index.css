@@ -1,3 +1,4 @@
+
 .landing {
   filter: brightness(70%);
 }
@@ -36,6 +37,7 @@
   color: '#FFF'
 }
 
+
 .demo-layout-transparent .mdl-layout__header,
 .demo-layout-transparent .mdl-layout__drawer-button {
   color: '#9E9E9E';
@@ -65,13 +67,41 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  }
 }
 
-.centered-in-div {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.dialogContainer {
+  width: 60%;
+}
+
+.demo-card-square.mdl-card {
+  width: 100%;
+  height: 100%;
+  margin: 5% 0;
+  background-color: rgba(0,0,0,0.3);
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+}
+
+.mdl-card__supporting-text {
   margin: 0 auto;
+  text-align: center;
+  padding-top: 3%;
+  color: '#FFF';
+  font-size: 1.8em;
+}
+
+.mdl-textfield {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.mdl-textfield__input {
+  background-color: '#FFF';
+  padding: 3%;
+  font-size: 1.5em;
+  color: '#000';
 }
 
 .poop {

@@ -21,7 +21,7 @@ import {
 } from 'material-ui/Stepper';
 
 
-class StationPage extends Component {
+class TrainPage extends Component {
   constructor(props) {
     super(props);
 
@@ -66,4 +66,4 @@ class StationPage extends Component {
   }
 }
 
-export default StationPage;
+export default TrainPage;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   BrowserRouter as Router,
   Route
@@ -6,6 +7,7 @@ import {
 import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
 import StationPage from './pages/StationPage';
+import TrainPage from './pages/TrainPage';
 
 class App extends Component {
   render() {
@@ -15,6 +17,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage}/>
           <Route path="/dashboard" component={DashboardPage}/>
           <Route path="/stations/:id" component={StationPage}/>
+          <Route path="/trains/:id" component={TrainPage}/>
         </div>
       </Router>
     );

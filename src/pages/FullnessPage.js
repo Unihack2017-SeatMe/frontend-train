@@ -58,25 +58,7 @@ class StationPage extends Component {
               width: '80vw'
             }}
           >
-            <Stepper className="stepper" activeStep={1}>
-              <Step>
-                <StepLabel>Select a station</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Choose a train</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>View fullness</StepLabel>
-              </Step>
-            </Stepper>
-            <List>
-              <Subheader>{this.state.station} Station</Subheader>
-              <ListItem
-                primaryText="Photos"
-                secondaryText="Jan 9, 2014"
-              />
-              <Divider />
-            </List>
+            Fucking full
           </div>
         </div>
       </div>

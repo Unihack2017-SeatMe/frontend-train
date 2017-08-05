@@ -10,72 +10,70 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <img
-          className="landing"
-          src="landing.jpg"
-          alt="landing"
-          style={{
-            filter: 'brightness(70%)'
-          }}
-        />
         <div
           className="mainApp"
           style={{
-            position: 'absolute',
-            top: 0,
-            width: '100%'
+            height: '100vh',
+            background: 'url(landing.jpg)',
+            backgroundSize: 'cover',
           }}
         >
-          <AppBar
-            title="Carriage Finder"
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
-            style={{
-              backgroundColor: 'rgba(0,0,0,0.4)',
-            }}
-          />
-          <div className="row">
-            <h1
-              className="col-lg-8"
+          <div className="overlay" style={{
+            backgroundColor: 'rgba(0,0,0,0.4)',
+            height: '100%'
+          }}>
+            <AppBar
+              title="Carriage Finder"
+              iconClassNameRight="muidocs-icon-navigation-expand-more"
               style={{
-                color: '#FFF',
-                margin: '1% auto'
+                backgroundColor: 'rgba(0,0,0,0.4)',
               }}
-              >
-                A modern app using
-                <br />
-                <strong>Computer Vision</strong>
-                <br />
-                to determine the fullness of trains.
-              </h1>
-          </div>
-          <div className="row">
-            <Link
-              to="/dashboard"
-              style={{
-                margin: '2% auto'
-              }}
-            >
-              <RaisedButton label="Get Started" primary={true}
-                backgroundColor='#00A4D8'
-                labelColor='#FFF'
-                labelStyle={{
-                  fontSize: '1.5em',
-                }}
-                buttonStyle={{
-                  width: '400px',
-                  height: '75px'
-                }}
-                overlayStyle={{
-                  paddingTop: '20px'
-                }}
+            />
+            <div className="sloganContainer">
+              <h1
+                className="slogan"
                 style={{
-                  width: '400px',
-                  height: '55px'
+                  color: '#FFF',
+                  margin: '1% auto',
                 }}
-              />
-            </Link>
+                >
+                  A modern app using
+                  <br />
+                  <strong>Computer Vision</strong>
+                  <br />
+                  to determine the fullness of trains.
+                </h1>
+            </div>
+            <div className="buttonContainer">
+              <Link
+                to="/dashboard"
+                style={{
+                  margin: 'auto !important'
+                }}
+              >
+                <RaisedButton
+                  className="getStartedButton"
+                  label="Get Started"
+                  backgroundColor='#00A4D8'
+                  labelColor='#FFF'
+                  // labelStyle={{
+                  //   fontSize: '1.5em',
+                  // }}
+                  // buttonStyle={{
+                  //   width: '400px',
+                  //   height: '75px'
+                  // }}
+                  // overlayStyle={{
+                  //   paddingTop: '20px'
+                  // }}
+                  // style={{
+                  //   width: '400px',
+                  //   height: '55px'
+                  // }}
+                />
+              </Link>
+            </div>
           </div>
-
         </div>
       </div>
     );

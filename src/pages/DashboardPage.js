@@ -6,6 +6,11 @@ import {
 } from 'react-router-dom'
 import RaisedButton from 'material-ui/RaisedButton';
 import StationSearchBar from '../StationSearchBar';
+import {
+  Step,
+  Stepper,
+  StepLabel,
+} from 'material-ui/Stepper';
 
 class DashboardPage extends Component {
   constructor(props) {
@@ -29,9 +34,6 @@ class DashboardPage extends Component {
         <div
           className="mainApp"
           style={{
-            position: 'absolute',
-            top: 0,
-            width: '100%'
           }}
         >
           <AppBar
@@ -41,24 +43,39 @@ class DashboardPage extends Component {
               backgroundColor: '#00A4D8',
             }}
           />
-          <div className="row" style={{marginTop: '2%'}}>
-            <div className="col-lg-3 col-md-2 col-xs-1" />
-            <div className="col-lg-6 col-md-8 col-xs-10">
-              <StationSearchBar handleUpdate={this.handleUpdateInput.bind(this)} style={{width: '60%'}} />
+          <div
+            className="container"
+            style={{
+              margin: 'auto',
+              width: '80vw'
+            }}
+          >
+            <Stepper className="stepper" activeStep={0}>
+              <Step>
+                <StepLabel>Select a station</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Choose a train</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>View fullness</StepLabel>
+              </Step>
+            </Stepper>
+            <div id="searchBarContainer" className="searchBarContainer" >
+              <StationSearchBar handleUpdate={this.handleUpdateInput.bind(this)} style={{width: '40%'}} />
               <br />
               <Link
                 to={`/stations/${this.state.station}`}
-              >
-                <RaisedButton label="Search" primary={true}
-                  backgroundColor='#00A4D8'
-                  labelColor='#FFF'
-                  style={{
-                    marginTop: '1%'
-                  }}
-                />
-              </Link>
+                >
+                  <RaisedButton label="Search" primary={true}
+                    backgroundColor='#00A4D8'
+                    labelColor='#FFF'
+                    style={{
+                      marginTop: '1%'
+                    }}
+                  />
+                </Link>
             </div>
-            <div className="col-lg-3 col-md-2 col-xs-1" />
           </div>
         </div>
       </div>

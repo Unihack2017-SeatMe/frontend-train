@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+
+import AppBar from 'material-ui/AppBar';
 import {
   Link
 } from 'react-router-dom'
-import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import StationSearchBar from '../StationSearchBar';
 
@@ -45,7 +46,9 @@ class DashboardPage extends Component {
             <div className="col-lg-6 col-md-8 col-xs-10">
               <StationSearchBar handleUpdate={this.handleUpdateInput.bind(this)} style={{width: '60%'}} />
               <br />
-              <Link>
+              <Link
+                to={`/stations/${this.state.station}`}
+              >
                 <RaisedButton label="Search" primary={true}
                   backgroundColor='#00A4D8'
                   labelColor='#FFF'

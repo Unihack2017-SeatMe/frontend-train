@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { MaterialStationSearchDropDown } from './MaterialStationSearchDropDown'
 import { StationDropDown } from './StationDropDown'
 import { Train } from './Train';
 
@@ -9,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Train/>
         <div className="poop">
-          <StationDropDown />
+          <MaterialStationSearchDropDown />
         </div>
       </div>
     );

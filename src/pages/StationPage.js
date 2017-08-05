@@ -83,7 +83,7 @@ class StationPage extends Component {
       }
 
       return (
-        <Link to={`/trains/${this.state.station}`} style={{ textDecoration: 'none' }} key={i}>
+        <Link to={`/trains/${this.state.station}/${timeData.current_time}/${platformNumber}`} style={{ textDecoration: 'none' }} key={i}>
           <ListItem
 
             primaryText={`${timeData.current_time} to the city`}
@@ -120,22 +120,26 @@ class StationPage extends Component {
               width: '80vw'
             }}
           >
-            <Stepper className="stepper" activeStep={1}>
-              <Step>
-                <StepLabel>Select a station</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Choose a train</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>View fullness</StepLabel>
-              </Step>
-            </Stepper>
-            <List>
-              <Subheader>{this.state.station} Station</Subheader>
-              {this.renderArrivalTimes()}
-              <Divider />
-            </List>
+            <div className="stepperContainer">
+              <Stepper activeStep={2}>
+                <Step>
+                  <StepLabel>Select a station</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>Choose a train</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>View fullness</StepLabel>
+                </Step>
+              </Stepper>
+            </div>
+            <div className="listContainer">
+              <List>
+                <Subheader>{this.state.station} Station</Subheader>
+                {this.renderArrivalTimes()}
+                <Divider />
+              </List>
+            </div>
           </div>
         </div>
       </div>

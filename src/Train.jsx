@@ -8,7 +8,7 @@ import { observer } from 'mobx-react';
  *     carriages per car. For example, [2, 3, 3, 2] would make a train with 4
  *     cars, with the first car having 2 carriages, the second car having 3
  *     carriages, and so on.
- *  
+ *
  *   - countList: An array of integers giving the number of people in each
  *     carriages. The number of elements given must be the same as the sum of
  *     `cars`.
@@ -16,7 +16,7 @@ import { observer } from 'mobx-react';
  *   - capacityList: An array of integers giving the maximum capacity of each
  *     carriage. The number of elements given must be the same as the sum of
  *     `cars`.
- * 
+ *
  * Example:
  * <Train cars={[2, 3]} capacityList={[10, 10, 10, 10, 10]}
  *     countList={[0, 2.5, 5, 7.5, 10]} />

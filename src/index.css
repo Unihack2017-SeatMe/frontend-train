@@ -19,11 +19,16 @@
     font-size: 1em;
   }
 
-  .stepper {
+  .stepperContainer {
     display: none;
   }
 
+  .listContainer {
+    padding-top: 5%;
+  }
+
   #searchBarContainer {
+    padding-top: 5%;
      width: 60vw !important;
      margin: auto;
   }

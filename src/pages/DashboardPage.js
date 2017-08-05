@@ -50,17 +50,19 @@ class DashboardPage extends Component {
               width: '80vw'
             }}
           >
-            <Stepper className="stepper" activeStep={0}>
-              <Step>
-                <StepLabel>Select a station</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>Choose a train</StepLabel>
-              </Step>
-              <Step>
-                <StepLabel>View fullness</StepLabel>
-              </Step>
-            </Stepper>
+            <div className="stepperContainer">
+              <Stepper className="stepper" activeStep={0}>
+                <Step>
+                  <StepLabel>Select a station</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>Choose a train</StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel>View fullness</StepLabel>
+                </Step>
+              </Stepper>
+            </div>
             <div id="searchBarContainer" className="searchBarContainer" >
               <StationSearchBar handleUpdate={this.handleUpdateInput.bind(this)} style={{width: '40%'}} />
               <br />

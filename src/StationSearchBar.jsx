@@ -1,6 +1,4 @@
-import './StationDropDown.css';
-
-import Autosuggest from 'react-autosuggest';
+import { AutoComplete } from 'material-ui';
 import React from 'react';
 
 // Search bar with auto completion componenet.
@@ -227,89 +225,35 @@ const stations = [
 	{"name": "Yarraville"}
 ]
 
-// Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
 
-  return inputLength === 0 ? [] : stations.filter(station =>
-    station.name.toLowerCase().slice(0, inputLength) === inputValue
-  );
-};
+// const getSuggestions = value => {
+//   const inputValue = value.trim().toLowerCase();
+// 	const inputLength = inputValue.length;
 
-// When suggestion is clicked, Autosuggest needs to populate the input
-// based on the clicked suggestion. Teach Autosuggest how to calculate the
-// input value for every given suggestion.
-const getSuggestionValue = suggestion => suggestion.name;
+//   return inputLength === 0 ? [] : stations.filter(station =>
+//     station.name.toLowerCase().slice(0, inputLength) === inputValue
+// 	);
+// };
 
-// Use your imagination to render suggestions.
-const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-  </div>
-);
-
-class StationDropDown extends React.Component {
-  constructor() {
-    super();
-
-    // Autosuggest is a controlled component.
-    // This means that you need to provide an input value
-    // and an onChange handler that updates this value (see below).
-    // Suggestions also need to be provided to the Autosuggest,
-    // and they are initially empty because the Autosuggest is closed.
-    this.state = {
-      value: '',
-      suggestions: []
-    };
-  }
-
-  onChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue
-    });
-    console.log('selected: ' + newValue);
-  };
-
-  // Autosuggest will call this function every time you need to update suggestions.
-  // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: getSuggestions(value)
-    });
-  };
-
-  // Autosuggest will call this function every time you need to clear suggestions.
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
-  };
-
+class StationSearchBar extends React.Component {
   render() {
-    const { value, suggestions } = this.state;
+		const style = this.props.style || {};
 
-    // Autosuggest will pass through all these props to the input.
-    const inputProps = {
-      placeholder: 'Type a train station',
-      value,
-      onChange: this.onChange
-    };
-
-    // Finally, render it!
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-				style={{width: '100%'}}
-      />
+			<AutoComplete
+				fullWidth
+				hintText="Type train station"
+				dataSource={stations.map(station => station.name)}
+				onUpdateInput={this.props.handleUpdate}
+      	filter={AutoComplete.caseInsensitiveFilter}
+				textFieldStyle={[style, {
+					height: '50px',
+					borderStyle: 'auto',
+					backgroundColor: 'rgba(0,0,0,0.03)'
+				}]}
+			/>
     );
   }
 }
 
-export default StationDropDown;
-export { StationDropDown };
+export default StationSearchBar;

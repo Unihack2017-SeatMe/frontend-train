@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import inputTheme from './input.js';
 
 import { StationDropDown } from './StationDropDown';
 
@@ -16,15 +17,13 @@ class App extends Component {
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">Carriage Finder</span>
           </div>
-          <main className="mdl-layout__content">
+          <main className="dialogContainer mdl-layout__content">
+            <div className="logo-font android-slogan">A modern app using <br /> <strong>Computer Vision</strong> <br /> to determine the fullness of trains.</div>
             <div className="demo-card-square mdl-card mdl-shadow--2dp">
-              <div className="poop">
-                <StationDropDown />
-              </div>
               <div className="mdl-card__supporting-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Aenan convallis.
+                Select a station to view departures from
               </div>
+              <StationDropDown theme={inputTheme} />
               <div className="mdl-card__actions mdl-card--border">
                 <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                   View Updates

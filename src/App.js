@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
+import StationPage from './pages/StationPage';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <div>
           <Route exact path="/" component={HomePage}/>
           <Route path="/dashboard" component={DashboardPage}/>
+          <Route path="/stations/:id" component={StationPage}/>
         </div>
       </Router>
     );

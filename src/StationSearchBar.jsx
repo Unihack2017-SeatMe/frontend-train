@@ -235,17 +235,25 @@ const stations = [
 // 	);
 // };
 
-class MaterialStationSearchDropDown extends React.Component {
+class StationSearchBar extends React.Component {
   render() {
+		const style = this.props.style || {};
+
     return (
 			<AutoComplete
+				fullWidth
 				hintText="Type train station"
 				dataSource={stations.map(station => station.name)}
+				onUpdateInput={this.props.handleUpdate}
       	filter={AutoComplete.caseInsensitiveFilter}
+				textFieldStyle={[style, {
+					height: '50px',
+					borderStyle: 'auto',
+					backgroundColor: 'rgba(0,0,0,0.03)'
+				}]}
 			/>
     );
   }
 }
 
-export default MaterialStationSearchDropDown;
-export { MaterialStationSearchDropDown };
+export default StationSearchBar;

@@ -4,19 +4,27 @@ import {
 } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
+import StationSearchBar from '../StationSearchBar';
 
 class DashboardPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      station: ''
+    };
+
+  }
+
+  handleUpdateInput = (value) => {
+    this.setState({
+      station: value
+    });
+  };
+
   render() {
     return (
       <div>
-        <img
-          className="landing"
-          src="landing.jpg"
-          alt="landing"
-          style={{
-            filter: 'brightness(70%)'
-          }}
-        />
         <div
           className="mainApp"
           style={{
@@ -29,46 +37,26 @@ class DashboardPage extends Component {
             title="Carriage Finder"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
             style={{
-              backgroundColor: 'rgba(0,0,0,0.4)',
+              backgroundColor: '#00A4D8',
             }}
           />
-          <div className="row">
-            <h1
-              className="col-lg-8"
-              style={{
-                color: '#FFF',
-                margin: '1% auto'
-              }}
-              >
-                A modern app using
-                <br />
-                <strong>Computer Vision</strong>
-                <br />
-                to determine the fullness of trains.
-              </h1>
+          <div className="row" style={{marginTop: '2%'}}>
+            <div className="col-lg-3 col-md-2 col-xs-1" />
+            <div className="col-lg-6 col-md-8 col-xs-10">
+              <StationSearchBar handleUpdate={this.handleUpdateInput.bind(this)} style={{width: '60%'}} />
+              <br />
+              <Link>
+                <RaisedButton label="Search" primary={true}
+                  backgroundColor='#00A4D8'
+                  labelColor='#FFF'
+                  style={{
+                    marginTop: '1%'
+                  }}
+                />
+              </Link>
+            </div>
+            <div className="col-lg-3 col-md-2 col-xs-1" />
           </div>
-          <div className="row">
-            <Link
-              to="/dashboard"
-              style={{
-                margin: '2% auto'
-              }}
-            >
-              <RaisedButton label="Get Started" primary={true}
-                backgroundColor='#00A4D8'
-                labelColor='#FFF'
-                labelStyle={{
-                  fontSize: '1.5em',
-                  padding: '10%'
-                }}
-                buttonStyle={{
-                  height: '84px',
-                  width: '400px',
-                }}
-              />
-            </Link>
-          </div>
-
         </div>
       </div>
     );

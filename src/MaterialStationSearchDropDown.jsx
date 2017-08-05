@@ -1,8 +1,4 @@
-import './StationDropDown.css';
-
-import Autosuggest from 'react-autosuggest';
 import React from 'react';
-
 // Search bar with auto completion componenet.
 
 // Imagine you have a list of languages that you'd like to autosuggest.
@@ -227,6 +223,17 @@ const stations = [
 	{"name": "Yarraville"}
 ]
 
+
+const getSuggestions = value => {
+  const inputValue = value.trim().toLowerCase();
+	const inputLength = inputValue.length;
+	console.log('input len: ' + inputLength);
+
+  return inputLength === 0 ? [] : stations.filter(station =>
+    station.name.toLowerCase().slice(0, inputLength) === inputValue
+	);
+};
+
 class MaterialStationSearchDropDown extends React.Component {
   constructor() {
     super();
@@ -235,21 +242,47 @@ class MaterialStationSearchDropDown extends React.Component {
     // This means that you need to provide an input value
     // and an onChange handler that updates this value (see below).
     // Suggestions also need to be provided to the Autosuggest,
-    // and they are initially empty because the Autosuggest is closed.
+		// and they are initially empty because the Autosuggest is closed.
+	
     this.state = {
       value: '',
       suggestions: []
     };
-  }
+	}
+	
+	renderListItems() {
+		var filtered_suggestions = this.state.suggestions;
+		var listElements = filtered_suggestions.map((suggestion, i) => {
+			return <li key={i} className="mdl-menu__item">{suggestion.name}</li>
+			}
+		);
+		console.log('filerted suggestions')
+		console.log(filtered_suggestions)
+		return listElements;
+	}
 
-  onChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue
-    });
-    console.log('selected: ' + newValue);
-  };
+	setSuggestions(value) {
+		console.log('setting suggestions');
+		return getSuggestions(value);
+		// this.setState({suggestions: filteredSuggestions});
+	}
+
+	changeState(newState) {
+			this.setState({value: newState}); 
+	}
+
+	componentDidMount() {
+		var that = this;
+		document.querySelector('.mdl-menu').addEventListener('click', function(event) {
+			var data = event.target.firstChild.data;
+			console.log(data);
+			that.setState({value: data});
+
+		});
+	}
 
   render() {
+		// console.log(this.state.suggestions);
 
     // Autosuggest will pass through all these props to the input.
     // const inputProps = {
@@ -257,16 +290,50 @@ class MaterialStationSearchDropDown extends React.Component {
     //   value,
     //   onChange: this.onChange
     // };
-
+		var that = this;
     return (
-    
-			<button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-				Button
-			</button>
+			<div >		
+				<form action="#">
+					<div className={`mdl-textfield mdl-js-textfield mdl-textfield--floating-label test ${(this.state.value === "") ? "" : "is-dirty"}`} style={{height: 'auto'}}>
+						<input className="mdl-textfield__input" type="text" id="trainStationDropDown" value={this.state.value}
+							onChange={ (event) => { 
+								var x =  getSuggestions(event.target.value);
+								console.log(x);
+								this.setState({
+									value: event.target.value, 
+									suggestions: x
+								}); 
+								this.forceUpdate();
+								// var suggestions = getSuggestions(event.target.value);
+								// document.querySelector('.mdl-menu__outline').clientHeight = 100px;
 
+							}
+						 }
+						 autoComplete="off"
+							style={{height: 'auto'}}
+						/>
+						<label className="mdl-textfield__label" htmlFor="trainStationDropDown" id="test2">Type a train station</label>
+							 <ul className="mdl-menu mdl-js-menu mdl-js-ripple-effect"
+									style={{display: 'flex', flexDirection: 'column'}}
+								data-mdl-for="trainStationDropDown">
+								{this.renderListItems()}
+							</ul>	
+					</div>
+				
+						
+				</form>
+					
+		</div>
+
+  
     );
   }
 }
 
 export default MaterialStationSearchDropDown;
 export { MaterialStationSearchDropDown };
+
+
+		// {this.state.suggestions ? this.state.suggestions.filter((suggestion) => suggestion.name.match(this.state.value)).map((suggestion, i) => {
+		// 							return <li key={i} className="mdl-menu__item">{suggestion.name}</li>
+		// 						}) : ''}

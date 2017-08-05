@@ -1,7 +1,7 @@
 export default {
   container:                'mdl-textfield mdl-js-textfield',
   containerOpen:            'react-autosuggest__container--open',
-  input:                    'mdl-textfield__input',
+  input:                    'mdl-textfield__input myInput',
   inputOpen:                'react-autosuggest__input--open',
   inputFocused:             'react-autosuggest__input--focused',
   suggestionsContainer:     'react-autosuggest__suggestions-container',

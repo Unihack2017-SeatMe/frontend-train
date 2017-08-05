@@ -20,10 +20,10 @@ class App extends Component {
           <main className="dialogContainer mdl-layout__content">
             <div className="logo-font android-slogan">A modern app using <br /> <strong>Computer Vision</strong> <br /> to determine the fullness of trains.</div>
             <div className="demo-card-square mdl-card mdl-shadow--2dp">
-              <div className="mdl-card__supporting-text">
+              <StationDropDown theme={inputTheme} />
+              <div className="mdl-card__supporting-text" style={{color: '#E0E0E0'}}>
                 Select a station to view departures from
               </div>
-              <StationDropDown theme={inputTheme} />
               <div className="mdl-card__actions mdl-card--border">
                 <a className="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                   View Updates

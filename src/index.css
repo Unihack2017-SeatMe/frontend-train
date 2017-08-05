@@ -51,6 +51,7 @@
   width: 100%;
   height: 100%;
   margin: 5% 0;
+  background-color: rgba(0,0,0,0.3);
 }
 .demo-card-square > .mdl-card__title {
   color: #fff;
@@ -59,12 +60,21 @@
 .mdl-card__supporting-text {
   margin: 0 auto;
   text-align: center;
-  font-size: 1.2em;
+  padding-top: 3%;
+  color: '#FFF';
+  font-size: 1.8em;
 }
 
 .mdl-textfield {
   margin: 0 auto;
-  width: 80%
+  width: 60%;
+}
+
+.mdl-textfield__input {
+  background-color: '#FFF';
+  padding: 3%;
+  font-size: 1.5em;
+  color: '#000';
 }
 
 .logo-font {

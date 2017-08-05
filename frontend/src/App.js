@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { FullnessMap } from './FullnessMap';
 import { Train } from './Train';
 
 class App extends Component {

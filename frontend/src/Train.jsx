@@ -3,13 +3,13 @@ import { observer } from 'mobx-react';
 
 @observer
 class Train extends React.Component {
-  componentDidMount() {
-    
-  }
+  componentDidMount() { 
+  };
+  
   render() {
     return (
       <div className="train-container" style={styles.trainContainer} >
-        <img src="train.png" alt="should be a train"/>
+        <img src="train.png" alt="should be a train" className="centered-in-div"/>
       </div>
     )
   }
@@ -21,5 +21,6 @@ const styles = {
     height: '400px'
   }
 };
+
 export default Train;
 export { Train };

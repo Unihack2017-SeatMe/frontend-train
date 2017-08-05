@@ -305,6 +305,7 @@ class StationDropDown extends React.Component {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
+				style={{width: '100%'}}
       />
     );
   }

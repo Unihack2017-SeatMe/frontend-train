@@ -20,7 +20,6 @@ class MinsFromNow extends React.Component {
     }
     
     return (
-      
       <CommunicationChatBubble style={iconStyles} color={colour} />
     );
   }

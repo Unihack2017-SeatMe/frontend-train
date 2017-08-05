@@ -1,6 +1,7 @@
+import './Train.css';
+
 import React from 'react';
 import { observer } from 'mobx-react';
-import './Train.css';
 
 /* Props:
  *   - cars: An array of integers, where each integer gives the number of
@@ -25,11 +26,11 @@ class Train extends React.Component {
   render() {
     let carriages = this.props.cars.reduce((prev, count) => {
       for(let i = 0; i < count; ++i) {
-        let svgSrc = 'carriage.svg';
+        let svgSrc = '/carriage.svg';
         if(i === 0) {
-          svgSrc = 'carriage-first.svg';
+          svgSrc = '/carriage-first.svg';
         } else if(i === count - 1) {
-          svgSrc = 'carriage-last.svg';
+          svgSrc = '/carriage-last.svg';
         }
         prev.push(
           <object key={prev.length} className="train-carriage"

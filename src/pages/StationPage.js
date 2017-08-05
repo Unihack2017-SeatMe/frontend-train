@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
 import {List, ListItem} from 'material-ui/List';
+import React, { Component } from 'react';
 import {
-  Link
-} from 'react-router-dom';
+  Step,
+  StepLabel,
+  Stepper,
+} from 'material-ui/Stepper';
 import {green500, orange500, red500} from 'material-ui/styles/colors';
+
 import AppBar from 'material-ui/AppBar';
 import Divider from 'material-ui/Divider';
 import ImageTimer from 'material-ui/svg-icons/image/timer';
-import MinsFromNow from '../MinsFromNow';
-import Subheader from 'material-ui/Subheader';
 import {
-  Step,
-  Stepper,
-  StepLabel,
-} from 'material-ui/Stepper';
-
+  Link
+} from 'react-router-dom';
+import Subheader from 'material-ui/Subheader';
 
 class StationPage extends Component {
   constructor(props) {
@@ -63,7 +62,7 @@ class StationPage extends Component {
       var data = {
         'platform': platformNumber,
         'time_remaining': waitTimeMins,
-        'current_time': formattedTime
+        'current_time': formattedTime,
       }
       times.push(data);
     }
@@ -84,7 +83,7 @@ class StationPage extends Component {
       }
 
       return (
-        <Link to={`/trains/${i}`} key={i}>
+        <Link to={`/trains/${this.state.station}`} style={{ textDecoration: 'none' }} key={i}>
           <ListItem
 
             primaryText={`${timeData.current_time} to the city`}

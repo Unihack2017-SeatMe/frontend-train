@@ -1,25 +1,24 @@
+import {List, ListItem} from 'material-ui/List';
 import React, { Component } from 'react';
+import {
+  Step,
+  StepLabel,
+  Stepper,
+} from 'material-ui/Stepper';
+import {blue500, yellow600} from 'material-ui/styles/colors';
 
+import ActionAssignment from 'material-ui/svg-icons/action/assignment';
+import ActionInfo from 'material-ui/svg-icons/action/info';
 import AppBar from 'material-ui/AppBar';
+import Avatar from 'material-ui/Avatar';
+import Divider from 'material-ui/Divider';
+import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
+import FileFolder from 'material-ui/svg-icons/file/folder';
 import {
   Link
 } from 'react-router-dom'
-import {List, ListItem} from 'material-ui/List';
-import ActionInfo from 'material-ui/svg-icons/action/info';
-import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
-import Avatar from 'material-ui/Avatar';
-import FileFolder from 'material-ui/svg-icons/file/folder';
-import ActionAssignment from 'material-ui/svg-icons/action/assignment';
-import {blue500, yellow600} from 'material-ui/styles/colors';
-import EditorInsertChart from 'material-ui/svg-icons/editor/insert-chart';
-
-import {
-  Step,
-  Stepper,
-  StepLabel,
-} from 'material-ui/Stepper';
-
+import Train from '../Train';
 
 class TrainPage extends Component {
   constructor(props) {
@@ -58,7 +57,24 @@ class TrainPage extends Component {
               width: '80vw'
             }}
           >
-            Fucking full
+
+          <Stepper className="stepper" activeStep={2}>
+              <Step>
+                <StepLabel>Select a station</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>Choose a train</StepLabel>
+              </Step>
+              <Step>
+                <StepLabel>View fullness</StepLabel>
+              </Step>
+          </Stepper>
+
+            FKING FULL KUNT
+
+            <Train cars={[2, 3]} capacityList={[10, 10, 10, 10, 10]}
+             countList={[0, 2.5, 5, 7.5, 10]} />
+            
           </div>
         </div>
       </div>

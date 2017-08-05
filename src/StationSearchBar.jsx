@@ -246,11 +246,7 @@ class StationSearchBar extends React.Component {
 				dataSource={stations.map(station => station.name)}
 				onUpdateInput={this.props.handleUpdate}
       	filter={AutoComplete.caseInsensitiveFilter}
-				textFieldStyle={[style, {
-					height: '50px',
-					borderStyle: 'auto',
-					backgroundColor: 'rgba(0,0,0,0.03)'
-				}]}
+		
 			/>
     );
   }

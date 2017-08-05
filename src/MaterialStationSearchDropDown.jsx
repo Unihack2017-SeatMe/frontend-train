@@ -241,7 +241,10 @@ class MaterialStationSearchDropDown extends React.Component {
 			<AutoComplete
 				hintText="Type train station"
 				dataSource={stations.map(station => station.name)}
-      	filter={AutoComplete.caseInsensitiveFilter}
+				filter={AutoComplete.caseInsensitiveFilter}
+				onNewRequest={(requestString) => {
+					console.log(requestString);
+				}}
 			/>
     );
   }

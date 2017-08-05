@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+
+import AppBar from 'material-ui/AppBar';
 import {
   Link
 } from 'react-router-dom'
-import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class DashboardPage extends Component {
@@ -59,11 +60,17 @@ class DashboardPage extends Component {
                 labelColor='#FFF'
                 labelStyle={{
                   fontSize: '1.5em',
-                  padding: '10%'
                 }}
                 buttonStyle={{
-                  height: '84px',
                   width: '400px',
+                  height: '75px'
+                }}
+                overlayStyle={{
+                  paddingTop: '20px'
+                }}
+                style={{
+                  width: '400px',
+                  height: '55px'
                 }}
               />
             </Link>

@@ -13,6 +13,7 @@ import FileFolder from 'material-ui/svg-icons/file/folder';
 import {
   Link
 } from 'react-router-dom'
+import {ShittyComponent} from '../ShittyComponent';
 import SocketIo from 'socket.io-client';
 import Subheader from 'material-ui/Subheader';
 import Train from '../Train';
@@ -37,7 +38,7 @@ class TrainPage extends Component {
   }
 
   componentDidMount() {
-    this.socket = SocketIo.connect('http://localhost:8080' );
+    this.socket = SocketIo.connect('http://118.139.19.176:8080' );
     this.socket.on('all_room_data', action((roomDataArray) => {
       console.log(roomDataArray)
       let i = 0;
@@ -114,6 +115,8 @@ class TrainPage extends Component {
           <Subheader>{detail} to city (Platform {platform})</Subheader>
 
           <Train cars={[2, 3]} />
+            
+          <ShittyComponent index={0}/>
           </div>
         </div>
       </div>

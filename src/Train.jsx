@@ -2,6 +2,7 @@ import './Train.css';
 
 import React from 'react';
 import { observer } from 'mobx-react';
+import { state } from './pages/State';
 
 /* Props:
  *   - cars: An array of integers, where each integer gives the number of
@@ -39,7 +40,7 @@ class Train extends React.Component {
       }
       return prev;
     }, []);
-
+    console.log("Test")
     return (
       <div className="train-container"
         ref={(container) => { this.container = container; }}>
@@ -51,14 +52,11 @@ class Train extends React.Component {
   }
 
   colourSvg() {
-    let svgObjects = this.container.querySelectorAll('.train-carriage');
-    for(let i = 0; i < svgObjects.length; ++i) {
-      svgObjects[i].onload = () => {
-        let svgDoc = svgObjects[i].contentDocument;
+    function updateSvgDocument(svgDoc, i) {
         let svgBackgrounds = svgDoc.querySelectorAll('.bg');
         let svgForegrounds = svgDoc.querySelectorAll('.fg');
         let [bgColour, fgColour] = fullnessToColour(
-          this.props.countList[i] / this.props.capacityList[i]
+          state.countList[i] / state.capacityList[i]
         );
         for(let j = 0; j < svgBackgrounds.length; ++j) {
           svgBackgrounds[j].style.fill = bgColour;
@@ -66,7 +64,17 @@ class Train extends React.Component {
         for(let j = 0; j < svgForegrounds.length; ++j) {
           svgForegrounds[j].style.fill = fgColour;
         }
-      };
+    }
+
+    let svgObjects = this.container.querySelectorAll('.train-carriage');
+    for(let i = 0; i < svgObjects.length; ++i) {
+      if(svgObjects[i].contentDocument == null) {
+        svgObjects[i].onload = () => {
+          updateSvgDocument(svgObjects[i].contentDocument, i);
+        };
+      } else {
+        updateSvgDocument(svgObjects[i].contentDocument, i);
+      }
     }
   }
 
@@ -74,10 +82,10 @@ class Train extends React.Component {
     this.colourSvg();
   }
 
-  componentDidUpdate() {
+  componentWillUpdate() {
     this.colourSvg();
   }
-};
+}
 
 function colourToHex(colour) {
   var hex = "#";

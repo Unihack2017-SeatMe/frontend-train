@@ -59,6 +59,7 @@ class TrainPage extends Component {
       while(state.capacityList.length > 0) {
         state.capacityList.pop();
       }
+      roomDataArray.sort((a, b) => a.id - b.id);
       for(let item of roomDataArray) {
         if(i >= 5) {
           break;
